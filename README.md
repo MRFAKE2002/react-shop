@@ -20,6 +20,7 @@ This is E-commerce website using react typescript tailwind. Source link: https:/
 
 6: Make Store page for 'Route' element.
 
+7: At first we make the navbar for project; So we make the navbar component and add it in App.tsx cause we must have it in all pages.
 
 # React + TypeScript + Vite
 
