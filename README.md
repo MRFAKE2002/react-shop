@@ -14,9 +14,9 @@ This is E-commerce website using react typescript tailwind. Source link: https:/
 
 3: Add 'BrowserRouter' tag from react-router-dom in main.tsx for make our pages memory.
 
+4: Add 'Routes' tag from react-router-dom in app.tsx for make 'Route' for our pages.
 
-
-
+5: Make Home page for 'Route' element.
 
 
 # React + TypeScript + Vite
