@@ -12,7 +12,7 @@ This is E-commerce website using react typescript tailwind. Source link: https:/
 
 ### `npm i react-router-dom`
 
-
+3: Add 'BrowserRouter' tag from react-router-dom in main.tsx for make our pages memory.
 
 
 
