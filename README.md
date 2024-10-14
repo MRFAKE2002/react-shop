@@ -20,7 +20,7 @@ This is E-commerce website using react typescript tailwind. Source link: https:/
 
 6: Make Store page for 'Route' element.
 
-7: At first we make the navbar for project; So we make the navbar component and add it in App.tsx cause we must have it in all pages.
+7: At first we make the navbar for project; So we make the Navbar component and add it in App.tsx cause we must have it in all pages.
 
 8: At this project we want use tailwind; So we need to install it.
 
@@ -32,8 +32,11 @@ Then we have to install tailwind configuration.
 
 Then add its configuration.
 
-9: Make our navbar using tailwind; So we make our links for pages and Make button for Cart. We need to make the container component.
+9: Make our Navbar using tailwind; So we make our links for pages and Make button for Cart. We need to make the container component.
 So we send our links as children into container component.
+
+10: We need to make the Layout component to send our Navbar and Footer and Routes and ... into it as children to make less code in 
+App.tsx.
 
 # React + TypeScript + Vite
 
