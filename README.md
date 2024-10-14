@@ -32,6 +32,8 @@ Then we have to install tailwind configuration.
 
 Then add its configuration.
 
+9: Make our navbar using tailwind; So we make our links for pages and Make button for Cart. We need to make the container component.
+So we send our links as children into container component.
 
 # React + TypeScript + Vite
 
