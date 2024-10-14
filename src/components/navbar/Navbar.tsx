@@ -17,6 +17,8 @@ function Navbar() {
         baraye gozashtan fasele az chap va rast az component container estefade mikonim va be onvan children pas midim.
         chon ma alan ba gozoshtan component oun class tailwind ke dar div bala bud emal nemishe pas bayad biaim yek div dige 
         bezarim ke betunim behesh style bedim.
+        ama chon oumadim dakhel component 'Container' az 'mx-auto' estefade kardim pas class 'items-center' emal nemishe pas bayad
+        biaim be tag pedaresh in class ro bedim yani tag ghabl az component 'container'.
       */}
       <Container>
         <div className="flex justify-between flex-row-reverse ">

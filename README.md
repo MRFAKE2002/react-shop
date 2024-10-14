@@ -32,11 +32,24 @@ Then we have to install tailwind configuration.
 
 Then add its configuration.
 
-9: Make our Navbar using tailwind; So we make our links for pages and Make button for Cart. We need to make the container component.
-So we send our links as children into container component.
+9: Make our Navbar using tailwind; So we make our links for pages and Make button for Cart. We need to make the Container component.
+So we send our links as children into Container component.
 
 10: We need to make the Layout component to send our Navbar and Footer and Routes and ... into it as children to make less code in 
 App.tsx.
+
+11: Now we make ProductItem component for store page. Add ProductItem into store page and add Container component.
+
+
+
+
+
+
+
+
+
+
+
 
 # React + TypeScript + Vite
 
