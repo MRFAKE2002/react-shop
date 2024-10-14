@@ -18,6 +18,8 @@ This is E-commerce website using react typescript tailwind. Source link: https:/
 
 5: Make Home page for 'Route' element.
 
+6: Make Store page for 'Route' element.
+
 
 # React + TypeScript + Vite
 

@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 // components
 import Home from "./pages/home/Home";
+import Store from "./pages/store/Store";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           2- yek 'element' ke component migire be oun url ke gofti ersal mishe.
       */}
       <Route path="" element={<Home />} />
+      <Route path="/store" element={<Store />} />
     </Routes>
   );
 }
