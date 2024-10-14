@@ -1,3 +1,24 @@
+# Introduction
+
+This is E-commerce website using react typescript tailwind. Source link: https://youtube.com/playlist?list=PLprvbQiR3cN9MuBFjHJq-ShYnjjvLQ9dk&si=N9caHlTsuT_notHV
+
+# Project Steps
+
+1: In this project we use Vite to make configuration of project. 
+
+### `npm create vite@latest`
+
+2: We Install react router dom for make our pages.
+
+### `npm i react-router-dom`
+
+
+
+
+
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
