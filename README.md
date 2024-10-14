@@ -22,6 +22,17 @@ This is E-commerce website using react typescript tailwind. Source link: https:/
 
 7: At first we make the navbar for project; So we make the navbar component and add it in App.tsx cause we must have it in all pages.
 
+8: At this project we want use tailwind; So we need to install it.
+
+### `npm install -D tailwindcss postcss autoprefixer`
+
+Then we have to install tailwind configuration.
+
+### `npx tailwindcss init -p`
+
+Then add its configuration.
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
