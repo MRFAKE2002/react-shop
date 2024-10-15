@@ -40,8 +40,7 @@ App.tsx.
 
 11: Now we make ProductItem component for store page. Add ProductItem into store page and add Container component.
 
-
-
+12: Now we make single product page; Make its Route and Add its link in store page.
 
 
 
