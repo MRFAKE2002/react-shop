@@ -3,6 +3,7 @@ import React from "react";
 
 // components
 import Container from "../../components/container/Container";
+import Button from "../../components/button/Button";
 
 function SingleProduct() {
   return (
@@ -18,12 +19,14 @@ function SingleProduct() {
             src="https://static.vecteezy.com/system/resources/previews/015/413/291/original/shopping-trolley-full-of-food-fruit-products-grocery-goods-grocery-shopping-cart-buying-food-in-supermarket-illustration-for-banner-vector.jpg"
             alt=""
           />
-          <div className="text-center bg-slate-400">
-            <button className="">اضافه به سبد خرید</button>
+          <div className="text-center ">
+            <Button variant="danger">
+              اضافه به سبد خرید
+            </Button>
           </div>
         </div>
         {/* 
-          ghesmat badane product.
+          ghesmat badane product
         */}
         <div className="col-span-10 order-1 text-right">
           <h1 className="text-2xl font-bold m-3">نام محصول</h1>

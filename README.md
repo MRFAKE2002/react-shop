@@ -42,7 +42,7 @@ App.tsx.
 
 12: Now we make single product page; Make its Route and Add its link in store page.
 
-
+13: In this project we want make our Button component specially; So we use it as 'Add to cart' in single product page.
 
 
 
