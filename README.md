@@ -46,7 +46,9 @@ App.tsx.
 
 14: Now we make cart page; Make its Route and add it into Navbar. Make CartItem component for each product.
 
+15: We need to make our API data for our products. We use Json server; So we make our json file and use json server to run this API.
 
+### `npx json-server --watch data/db.json --port 8000`
 
 
 
