@@ -1,5 +1,3 @@
-// libraries
-import React from 'react'
 
 function ProductItem() {
   return (

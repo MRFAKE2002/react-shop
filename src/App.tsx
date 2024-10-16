@@ -6,6 +6,7 @@ import Home from "./pages/home/Home";
 import Store from "./pages/store/Store";
 import Layout from "./components/layout/Layout";
 import SingleProduct from "./pages/singleProduct/SingleProduct";
+import Cart from "./pages/cart/Cart";
 
 function App() {
   return (
@@ -23,9 +24,29 @@ function App() {
         <Route path="" element={<Home />} />
         <Route path="/store" element={<Store />} />
         <Route path="/product/:id" element={<SingleProduct />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </Layout>
   );
 }
 
 export default App;
+
+// ChatGPT
+
+// import React from 'react';
+// import ProductDetails from './pages/singleProduct/SingleProduct';
+
+// const App: React.FC = () => {
+//   return (
+//     <ProductDetails
+//       name="Sample Product"
+//       price={99.99}
+//       description="This is a great product with excellent quality."
+//       features={['High-quality materials', 'Durable', 'Available in multiple colors']}
+//       imageUrl="https://static.vecteezy.com/system/resources/previews/015/413/291/original/shopping-trolley-full-of-food-fruit-products-grocery-goods-grocery-shopping-cart-buying-food-in-supermarket-illustration-for-banner-vector.jpg"
+//     />
+//   );
+// };
+
+// export default App;

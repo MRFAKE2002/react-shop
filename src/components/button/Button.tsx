@@ -11,7 +11,7 @@ type TVariant = "primary" | "secondary" | "danger" | "warning" | "success";
   'ComponentPropsWitRef' estefade mikonim va migim element haye tag 'button' ro mikhaim ke be onvan type bedim be props.
 */
 type TButton = ComponentPropsWithRef<"button"> & {
-  variant: TVariant;
+  variant?: TVariant;
 };
 
 /*
@@ -46,7 +46,7 @@ export default Button;
   ma baraye har kodum az halat miaim 'style' moshakhas mikonim hala bayad biaim pasokh ro ke 'return' mikonim mohtaviat ro dakhel attribute 'style' bezarim.
   ba inkar bar asas har vorudi rang 'button' va text ro moshakhas mikonim.
 */
-function checkVariant(variant: TVariant) {
+function checkVariant(variant?: TVariant) {
   if (variant === "primary") {
     return { backgroundColor: "blue", color: "white" };
   } else if (variant === "secondary") {

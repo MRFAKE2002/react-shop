@@ -44,7 +44,7 @@ App.tsx.
 
 13: In this project we want make our Button component specially; So we use it as 'Add to cart' in single product page.
 
-
+14: Now we make cart page; Make its Route and add it into Navbar. Make CartItem component for each product.
 
 
 
