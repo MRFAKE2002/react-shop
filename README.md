@@ -4,7 +4,7 @@ This is E-commerce website using react typescript tailwind. Source link: https:/
 
 # Project Steps
 
-1: In this project we use Vite to make configuration of project. 
+1: In this project we use Vite to make configuration of project.
 
 ### `npm create vite@latest`
 
@@ -35,7 +35,7 @@ Then add its configuration.
 9: Make our Navbar using tailwind; So we make our links for pages and Make button for Cart. We need to make the Container component.
 So we send our links as children into Container component.
 
-10: We need to make the Layout component to send our Navbar and Footer and Routes and ... into it as children to make less code in 
+10: We need to make the Layout component to send our Navbar and Footer and Routes and ... into it as children to make less code in
 App.tsx.
 
 11: Now we make ProductItem component for store page. Add ProductItem into store page and add Container component.
@@ -49,6 +49,7 @@ App.tsx.
 15: We need to make our API data for our products. We use 'json-server'; So we make our json file and use json server to run this API.
 
 ### `npm install json-server `
+
 ### `npx json-server --watch data/db.json --port 8000`
 
 16: In this project we use 'axios' for our API; So we make api.ts for call our data in it for better and clear code.
@@ -57,7 +58,9 @@ App.tsx.
 
 Now we call our API using 'useEffect' and 'map' on data to render component.
 
+After we make our API data we must make its type and send the data as props to ProductItem component.
 
+We make types file to make our types for project; For example make server for our ProductAPI type.
 
 
 
@@ -81,11 +84,11 @@ export default tseslint.config({
   languageOptions: {
     // other options...
     parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
       tsconfigRootDir: import.meta.dirname,
     },
   },
-})
+});
 ```
 
 - Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
@@ -94,11 +97,11 @@ export default tseslint.config({
 
 ```js
 // eslint.config.js
-import react from 'eslint-plugin-react'
+import react from "eslint-plugin-react";
 
 export default tseslint.config({
   // Set the react version
-  settings: { react: { version: '18.3' } },
+  settings: { react: { version: "18.3" } },
   plugins: {
     // Add the react plugin
     react,
@@ -107,7 +110,7 @@ export default tseslint.config({
     // other rules...
     // Enable its recommended rules
     ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
+    ...react.configs["jsx-runtime"].rules,
   },
-})
+});
 ```

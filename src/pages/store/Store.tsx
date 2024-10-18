@@ -9,8 +9,15 @@ import { Link } from "react-router-dom";
 // API call function
 import { getProductsAPI } from "../../services/api";
 
+// types
+import { IProductsAPI } from "../../types/server";
+
 function Store() {
-  const [productsData, setProductsData] = useState([]);
+  /* 
+    in yani ma 'state' darim ke list type 'IProductsAPI[]' hala in yani list ke tush majmueyi az object ke type 'IProductsAPI' 
+    darim ke in 'IProductsAPI' khodesh object va tush type data product.
+  */
+  const [productsData, setProductsData] = useState<IProductsAPI[]>([]);
 
   /*
     ma inja miaim az 'useEffect' estefade mikonim ta az charkhe zendegi 'lifecycle React' estefade konim va API call anjam bedim.
@@ -83,8 +90,8 @@ function Store() {
 
         */}
         {productsData.map((product) => (
-          <Link to={`/product/${product}`}>
-            <ProductItem />
+          <Link to={`/product/${product.id}`}>
+            <ProductItem {...product} />
           </Link>
         ))}
       </div>
