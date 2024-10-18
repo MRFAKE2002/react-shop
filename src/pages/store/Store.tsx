@@ -90,7 +90,7 @@ function Store() {
 
         */}
         {productsData.map((product) => (
-          <Link to={`/product/${product.id}`}>
+          <Link key={product.id} to={`/product/${product.id}`}>
             <ProductItem {...product} />
           </Link>
         ))}

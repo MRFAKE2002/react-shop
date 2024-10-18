@@ -12,8 +12,8 @@ function ProductItem({ name, description, price, imageUrl }: TProduct) {
     <div className="border shadow rounded">
       <img className="shadow rounded-md" src={imageUrl} alt="" />
       <div className="flex justify-between flex-row-reverse px-4 mt-3">
-        <h1 className="text-lg line-clamp-1">{name}</h1>
-        <span className="text-gray-500 font-bold"> تومان {price}</span>
+        <h1 className="text-sm line-clamp-1">{name}</h1>
+        <span className="text-gray-500"> تومان {price}</span>
       </div>
       <p className="m-4 line-clamp-1 text-right text-gray-500">{description} </p>
     </div>

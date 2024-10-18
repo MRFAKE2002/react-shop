@@ -1,21 +1,64 @@
+// libraries
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
 // components
 import Container from "../../components/container/Container";
 import Button from "../../components/button/Button";
 
+// types
+import { IProductsAPI } from "../../types/server";
+
+// API call functions
+import { getProductObjectAPI } from "../../services/api";
+
 function SingleProduct() {
+  const productId = useParams<{ id: string }>();
+  /* 
+  console.log(productId);
+  "
+    {id: '3'}
+  "
+  */
+
+  // in yani ma 'state' darim ke type 'IProductsAPI' yani yek object ke data product rush hast
+  const [productObject, setProductObject] = useState<IProductsAPI | null>(null);
+
+  /*
+    ma inja miaim az 'useEffect' estefade mikonim ta az charkhe zendegi 'lifecycle React' estefade konim va API call anjam bedim.
+    
+    alan 'getProductObjectAPI' yek 'async function' ast ke yani yek 'promise' barmigardune yani ta zamani ke data kamel daryaft nashe
+    'return' nemikone pas ma miaim az 'then' estefade mikonim.
+
+    dar asl 'then' miad az natije nahayi 'zamani ke promise takmil shod' estefade mikone; amalan montazer mimune ta API call kamel 
+    beshe va data 'return' shode ro dar 'productsAPI' barmigardune va function dakhelesh ro ejra mikone.
+  */
+  useEffect(() => {
+    getProductObjectAPI(productId.id as string).then((productAPI) => {
+      /*
+        console.log(productAPI);
+        "
+          {id: '1', name: 'محصول اول', price: 1000000, description: 'این یک متن تستی برای نشان دادن اینکه این یک محصول … این یک محصول است که در یک کامپوننت جدا قرار داره', imageUrl: 'https://static.vecteezy.com/system/resources/previ…in-supermarket-illustration-for-banner-vector.jpg'}
+        "
+      */
+
+      /*
+        vaghti data az API call bar migardan dar inja data ro be 'productAPI' ekhtesas mide va badesh 'function setProductObject' 
+        farakhani mikone ke marbut be yek 'state' ast; in function data ro dakhel 'state productObject' gharar mide va component ro 
+        'rerender' mikone ta data namayesh bede. 
+      */
+      setProductObject(productAPI);
+    });
+  }, []);
   return (
     <Container>
       <div className="grid grid-cols-12 h-80 shadow mt-5 ">
         {/*
           ghesmat aks va dokme sabad kharid product.
-          man inja baraye inke jaye 'div image' va 'div body' ro avaz konam oumadam az class 'order' estefade kardam ke tartib ro avaz konam.
+          man inja baraye in ke jaye 'div image' va 'div body' ro avaz konam oumadam az class 'order' estefade kardam ke tartib ro avaz konam.
         */}
         <div className="col-span-2 bg-sky-200 order-2 p-3">
-          <img 
-            className="border"
-            src="https://static.vecteezy.com/system/resources/previews/015/413/291/original/shopping-trolley-full-of-food-fruit-products-grocery-goods-grocery-shopping-cart-buying-food-in-supermarket-illustration-for-banner-vector.jpg"
-            alt=""
-          />
+          <img className="border" src={productObject?.imageUrl} alt="" />
           <div className="text-center ">
             <Button className="rounded-md w-full py-2 mt-6" variant="primary">
               اضافه به سبد خرید
@@ -23,20 +66,14 @@ function SingleProduct() {
           </div>
         </div>
         {/* 
-          ghesmat badane product
+          ghesmat body product
         */}
         <div className="col-span-10 order-1 text-right">
-          <h1 className="text-2xl font-bold m-3">نام محصول</h1>
-          <span className="text-lg text-gray-600 m-3">قیمت: 5000 تومان</span>
-          <p className="m-3">
-            این یک متن تستی برای نشان دادن اینکه این یک محصول است که در یک
-            کامپوننت جدا قرار داره این یک متن تستی برای نشان دادن اینکه این یک
-            محصول است که در یک کامپوننت جدا قرار داره این یک متن تستی برای نشان
-            دادن اینکه این یک محصول است که در یک کامپوننت جدا قرار داره این یک
-            متن تستی برای نشان دادن اینکه این یک محصول است که در یک کامپوننت جدا
-            قرار داره این یک متن تستی برای نشان دادن اینکه این یک محصول است که
-            در یک کامپوننت جدا قرار داره
-          </p>
+          <h1 className="text-2xl font-bold m-3">{productObject?.name}</h1>
+          <span className="text-lg text-gray-600 m-3">
+            قیمت: {productObject?.price} تومان
+          </span>
+          <p className="m-3">{productObject?.description}</p>
         </div>
       </div>
     </Container>
@@ -44,8 +81,6 @@ function SingleProduct() {
 }
 
 export default SingleProduct;
-
-
 
 // ChatGPT
 
@@ -134,4 +169,3 @@ export default SingleProduct;
 // };
 
 // export default ProductDetails;
-

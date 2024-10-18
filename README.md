@@ -62,7 +62,7 @@ After we make our API data we must make its type and send the data as props to P
 
 We make types file to make our types for project; For example make server for our ProductAPI type.
 
-
+17: Now we want to get our API data for each product with their id. Make API call function and get product id from 'link' by useParams.
 
 # React + TypeScript + Vite
 

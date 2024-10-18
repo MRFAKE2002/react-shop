@@ -60,6 +60,8 @@ export async function getProductsAPI() {
 
   // ba estefade az destructuring
   const { data } = await client("/products");
+  // console.log(data);
+
   return data;
 
   // bedun destructuring
@@ -67,3 +69,9 @@ export async function getProductsAPI() {
   // return data.data;
 }
 
+export async function getProductObjectAPI(id: string) {
+  const { data } = await client(`/products/${id}`);
+  // console.log(data);
+
+  return data;
+}
