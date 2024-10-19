@@ -55,14 +55,14 @@ function SingleProduct() {
     });
   }, []);
 
-  const { cartItems, handleIncreaseProductIntoCart, handleDecreaseProductIntoCart } = useCartContextValues()
+  const { cartItems, handleIncreaseProductIntoCart, handleDecreaseProductIntoCart, getProductQuantityFromCart } = useCartContextValues()
 
   console.log(cartItems);
   
 
   return (
     <Container>
-      <div className="grid grid-cols-12 h-80 shadow mt-5 ">
+      <div className="grid grid-cols-12 h-auto shadow mt-5 ">
         {/*
           ghesmat aks va dokme sabad kharid product.
           man inja baraye in ke jaye 'div image' va 'div body' ro avaz konam oumadam az class 'order' estefade kardam ke tartib ro avaz konam.
@@ -77,10 +77,12 @@ function SingleProduct() {
               اضافه به سبد خرید
             </Button>
 
+            <span className="">{getProductQuantityFromCart(parseInt(productId.id as string))}</span>
+
             {/* 
               chon bayad 'id product' ro be 'context handleDecreaseProductIntoCart function' bedim bayad 'number' bashe pas az 'parsInt' estefade mikonim.
             */}
-            <Button onClick={() => handleDecreaseProductIntoCart(parseInt(productId.id as string))} className="rounded-md w-full py-2 mt-6" variant="danger">
+            <Button onClick={() => handleDecreaseProductIntoCart(parseInt(productId.id as string))} className="rounded-md w-full py-2 " variant="danger">
               کم کردن از سبد خرید
             </Button>
           </div>

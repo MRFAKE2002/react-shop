@@ -14,6 +14,7 @@ interface ICartContext {
   cartItems: ICartItem[];
   handleIncreaseProductIntoCart: (id: number) => void;
   handleDecreaseProductIntoCart: (id: number) => void;
+  getProductQuantityFromCart: (id: number) => number;
 }
 
 /*
@@ -136,8 +137,24 @@ export function CartContextProvider({ children }: ICartContextProvider) {
     });
   };
 
+
+  /*
+    alan mikhaim az 'arrow function' estefade konim va 'quantity' har 'product' ro az 'list state cartItems' begirim va namayesh bedim
+  */
+  const getProductQuantityFromCart = (id:number) => {
+    /* 
+      inja migim az dakhel 'list state cartItems' oun object product ro biar ke id product hamin id ke ferestade shode; hala 'find' age bashe miad 'object oun product' 
+      ro barmigardune ya age nabashe 'undefined' barmigardune;
+
+      ma miaim migim age oun product bud ke bia az object ke barmigardune 'quantity' ro begu va 'return' kon ke mishe type 'number' dar khoruji.
+      age ham oun product ke 'id' ro ferestade nabud dakhel 'list state cartItems' bia kolan 0 'return' kon ke 'quantity oun product' ro '0' bezanim; ke mishe type 'number' dar khoruji
+    */
+    return cartItems.find(item => item.id === id)?.quantity || 0
+  }
+
+  
   return (
-    <CartContext.Provider value={{ cartItems, handleIncreaseProductIntoCart, handleDecreaseProductIntoCart }}>
+    <CartContext.Provider value={{ cartItems, handleIncreaseProductIntoCart, handleDecreaseProductIntoCart, getProductQuantityFromCart }}>
       {children}
     </CartContext.Provider>
   );
