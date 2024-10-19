@@ -55,7 +55,7 @@ function SingleProduct() {
     });
   }, []);
 
-  const { cartItems, handleIncreaseProductIntoCart } = useCartContextValues()
+  const { cartItems, handleIncreaseProductIntoCart, handleDecreaseProductIntoCart } = useCartContextValues()
 
   console.log(cartItems);
   
@@ -75,6 +75,13 @@ function SingleProduct() {
             */}
             <Button onClick={() => handleIncreaseProductIntoCart(parseInt(productId.id as string))} className="rounded-md w-full py-2 mt-6" variant="primary">
               اضافه به سبد خرید
+            </Button>
+
+            {/* 
+              chon bayad 'id product' ro be 'context handleDecreaseProductIntoCart function' bedim bayad 'number' bashe pas az 'parsInt' estefade mikonim.
+            */}
+            <Button onClick={() => handleDecreaseProductIntoCart(parseInt(productId.id as string))} className="rounded-md w-full py-2 mt-6" variant="danger">
+              کم کردن از سبد خرید
             </Button>
           </div>
         </div>

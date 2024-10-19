@@ -70,6 +70,7 @@ We use 'useContext' for access to all 'context values' like cart items.
 
 19: Make 'handelIncreaseProductInCart' arrow function in context provider function to have in through the project and use it in 'SingleProduct' page.
 
+20: Make 'handelDecreaseProductInCart' arrow function in context provider function to have in through the project and use it in 'SingleProduct' page.
 
 
 

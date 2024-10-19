@@ -13,6 +13,7 @@ interface ICartItem {
 interface ICartContext {
   cartItems: ICartItem[];
   handleIncreaseProductIntoCart: (id: number) => void;
+  handleDecreaseProductIntoCart: (id: number) => void;
 }
 
 /*
@@ -92,8 +93,51 @@ export function CartContextProvider({ children }: ICartContextProvider) {
     });
   };
 
+
+  /*
+    khob residim ghul akhar 2:
+    alan mikhaim function besazim baraye 'cart'; in function 3 ta senario dare baraye har product:
+
+    1: baraye 'akharin bar' ke mikhaim 'product' ro az 'cart' kam konim pas bayad 'id' oun 'product' ro begirim va agar dakhel 'cart' faghat 1 dune bud biaim oun
+    'object' ro az 'list state cartItems' pak konim.
+
+    2: agar 'product' dakhel 'cart' bud bayad biaim dakhel 'list state cartItems' begardim biaim 'id product' bedim age bud az 'quantity' kam konim.
+
+    3: ma dakhel 'list state cartItems' momkene chand ta 'product' dashte bashim bayad begim ke oun 'product' ke bahash kari nadarim hamuntori bargardune.
+
+    ma alan miaim 'id' ke dakhel 'SingleProduct page' az 'useParams' gereftim ro be 'function' midim. hala inja 'function setCartItems' seda mizanim chon hame senario ha
+    va data dakhel in 'list' gharar dare.
+  */
+
+  const handleDecreaseProductIntoCart = (id: number) => {
+    setCartItems((currentItems) => {
+      /*
+        ma inja mikhaim dakhel 'list state cartItems' ke meghdar ghablish dakhel 'currentItems' gozashtim 'search' bezanim ta bebinim oun 'product' ke 'click' kardim 
+        dakhel 'cart' hast ya na. 
+        agar nabashe 'null ya undefined' bar migardune.
+        ama inja hatman hast chon mikhaim kamesh konim.
+      */
+      let selectedProduct = currentItems.find((item) => item.id === id);
+      if (selectedProduct?.quantity == 1) {
+        // inja migim 'product' dakhel 'cart' hast biad ye 'list' besaze 'object' hayi ke 'id product' ba id oun 'selected product' motafavete dakhelesh bezare.
+        return cartItems.filter(item => item.id !== id);
+      } else {
+        // agar 'product' entekhabi dakhel 'cart' bud miaim 'map' mizanim dakhel 'cart' ke har 'object product' ro behemun bede.
+        return currentItems.map((product) => {
+          // age 'product' peida shod ouni bud ke entekhab kardim bia yedune az quantity kam kon.
+          if (product.id == id) {
+            return {...product, quantity: product.quantity - 1};
+            // age nabud hamun 'object product' ro return kon dobare be cart engar ke dast nakhorde va taghyir nakarde.
+          } else {
+            return product;
+          }
+        });
+      }
+    });
+  };
+
   return (
-    <CartContext.Provider value={{ cartItems, handleIncreaseProductIntoCart }}>
+    <CartContext.Provider value={{ cartItems, handleIncreaseProductIntoCart, handleDecreaseProductIntoCart }}>
       {children}
     </CartContext.Provider>
   );
