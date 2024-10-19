@@ -60,9 +60,24 @@ Now we call our API using 'useEffect' and 'map' on data to render component.
 
 After we make our API data we must make its type and send the data as props to ProductItem component.
 
-We make types file to make our types for project; For example make server for our ProductAPI type.
+We make types folder to make our types for project; For example make server file for our ProductAPI type.
 
 17: Now we want to get our API data for each product with their id. Make API call function and get product id from 'link' by useParams.
+
+18: Make context folder to make our context function for send cart state throughout the project. 
+
+We use 'useContext' for access to all 'context values' like cart items.
+
+
+
+
+
+
+
+
+
+
+
 
 # React + TypeScript + Vite
 

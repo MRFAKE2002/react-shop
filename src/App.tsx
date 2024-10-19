@@ -2,31 +2,40 @@
 import { Route, Routes } from "react-router-dom";
 
 // components
+import Layout from "./components/layout/Layout";
+
+// pages
 import Home from "./pages/home/Home";
 import Store from "./pages/store/Store";
-import Layout from "./components/layout/Layout";
 import SingleProduct from "./pages/singleProduct/SingleProduct";
 import Cart from "./pages/cart/Cart";
 
+// context function
+import { CartContextProvider } from "./context/CartContext";
+
+
 function App() {
   return (
-    /* 
-      baraye inke code kamtar inja bashe va tamiztar bashe miaim ye component Layout misazim va Navbar ya Footer ya baghie ro 
-      ounja mizarim va Routes ro ham besurat children mifrestim.
-    */
-    <Layout>
-      <Routes>
-        {/*
-              dar inja ma har chand ta ke bekhaim 'Route' misazim hala baraye har 'Route' bayad 2 ta props barash befrestim :
-              1- masir ya 'path' hast ke tush malum mishe kodum url data ferestade beshe.
-              2- yek 'element' ke component migire be oun url ke gofti ersal mishe.
-          */}
-        <Route path="" element={<Home />} />
-        <Route path="/store" element={<Store />} />
-        <Route path="/product/:id" element={<SingleProduct />} />
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
-    </Layout>
+    // miaim az 'context function' estefade mikonim baraye tamizi code 'App.tsx' va ferestadan data 'cart' be kol project.
+    <CartContextProvider>
+      {/*
+        baraye in ke code kamtar inja bashe va tamiztar bashe miaim ye component Layout misazim va Navbar ya Footer ya baghie ro
+        ounja mizarim va Routes ro ham besurat children mifrestim.
+      */}
+      <Layout>
+        <Routes>
+          {/*
+                dar inja ma har chand ta ke bekhaim 'Route' misazim hala baraye har 'Route' bayad 2 ta props barash beferestim :
+                1- masir ya 'path' hast ke tush malum mishe kodum url data ferestade beshe.
+                2- yek 'element' ke component migire be oun url ke gofti ersal mishe.
+            */}
+          <Route path="" element={<Home />} />
+          <Route path="/store" element={<Store />} />
+          <Route path="/product/:id" element={<SingleProduct />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </Layout>
+    </CartContextProvider>
   );
 }
 
