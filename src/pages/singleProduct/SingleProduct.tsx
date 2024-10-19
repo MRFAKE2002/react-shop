@@ -15,7 +15,6 @@ import { getProductObjectAPI } from "../../services/api";
 // context functions
 import { useCartContextValues } from "../../context/CartContext";
 
-
 function SingleProduct() {
   const productId = useParams<{ id: string }>();
   /* 
@@ -55,37 +54,82 @@ function SingleProduct() {
     });
   }, []);
 
-  const { cartItems, handleIncreaseProductIntoCart, handleDecreaseProductIntoCart, getProductQuantityFromCart } = useCartContextValues()
+  const {
+    cartItems,
+    handleIncreaseProductIntoCart,
+    handleDecreaseProductIntoCart,
+    getProductQuantityFromCart,
+  } = useCartContextValues();
 
   console.log(cartItems);
-  
 
   return (
     <Container>
-      <div className="grid grid-cols-12 h-auto shadow mt-5 ">
+      <div className="grid grid-cols-12 h-60 shadow mt-5 ">
         {/*
           ghesmat aks va dokme sabad kharid product.
           man inja baraye in ke jaye 'div image' va 'div body' ro avaz konam oumadam az class 'order' estefade kardam ke tartib ro avaz konam.
         */}
         <div className="col-span-2 bg-sky-200 order-2 p-3">
           <img className="border" src={productObject?.imageUrl} alt="" />
-          <div className="text-center ">
-            {/* 
-              chon bayad 'id product' ro be 'context handleIncreaseProductIntoCart function' bedim bayad 'number' bashe pas az 'parsInt' estefade mikonim.
-            */}
-            <Button onClick={() => handleIncreaseProductIntoCart(parseInt(productId.id as string))} className="rounded-md w-full py-2 mt-6" variant="primary">
-              اضافه به سبد خرید
-            </Button>
 
-            <span className="">{getProductQuantityFromCart(parseInt(productId.id as string))}</span>
+          {/* 
+            estefade az 'Ternary operator' ya if tak khat baraye namayesh 'button'
+          */}
+          {getProductQuantityFromCart(parseInt(productId.id as string)) ===
+          0 ? (
+            <div>
+              {/*
+                chon bayad 'id product' ro be 'context handleIncreaseProductIntoCart function' bedim bayad 'number' bashe pas az 'parsInt' estefade mikonim.
+              */}
+              <Button
+                className="rounded-md w-full py-2 mt-6"
+                variant="primary"
+                onClick={() =>
+                  handleIncreaseProductIntoCart(
+                    parseInt(productId.id as string)
+                  )
+                }
+              >
+                اضافه به سبد خرید
+              </Button>
+            </div>
+          ) : (
+            <div className="flex justify-between mt-5">
+              {/*
+                chon bayad 'id product' ro be 'context handleIncreaseProductIntoCart function' bedim bayad 'number' bashe pas az 'parsInt' estefade mikonim.
+              */}
+              <Button
+                className="rounded-md px-4 py-1"
+                variant="primary"
+                onClick={() =>
+                  handleIncreaseProductIntoCart(
+                    parseInt(productId.id as string)
+                  )
+                }
+              >
+                +
+              </Button>
+              <span className="flex">
+                {getProductQuantityFromCart(parseInt(productId.id as string))}
+              </span>
+              {/*
+                chon bayad 'id product' ro be 'context handleDecreaseProductIntoCart function' bedim bayad 'number' bashe pas az 'parsInt' estefade mikonim.
+              */}
+              <Button
+                onClick={() =>
+                  handleDecreaseProductIntoCart(
+                    parseInt(productId.id as string)
+                  )
+                }
+                className="rounded-md px-4 py-1"
+                variant="danger"
+              >
+                -
+              </Button>
+            </div>
+          )}
 
-            {/* 
-              chon bayad 'id product' ro be 'context handleDecreaseProductIntoCart function' bedim bayad 'number' bashe pas az 'parsInt' estefade mikonim.
-            */}
-            <Button onClick={() => handleDecreaseProductIntoCart(parseInt(productId.id as string))} className="rounded-md w-full py-2 " variant="danger">
-              کم کردن از سبد خرید
-            </Button>
-          </div>
         </div>
         {/* 
           ghesmat body product
