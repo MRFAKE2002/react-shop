@@ -3,7 +3,17 @@ import Button from "../../components/button/Button";
 import CartItem from "../../components/cartItem/CartItem";
 import Container from "../../components/container/Container";
 
+// context
+import { useCartContextValues } from "../../context/CartContext";
+
 function Cart() {
+  /*
+    baraye gereftan 'value' az context bayad az 'useContext' estefade konim va esm oun 'context' ke mikhaim seda bezanim va ba estefade
+    az 'destructuring' be oun 'value' hayi ke mikhaim dastresi dashte bashim.
+  */
+  // const { cartItems, handleIncreaseProductIntoCart } = useCartContextValues()
+
+
   return (
     <Container>
       <div>

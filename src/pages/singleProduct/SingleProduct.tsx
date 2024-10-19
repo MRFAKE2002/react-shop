@@ -12,6 +12,10 @@ import { IProductsAPI } from "../../types/server";
 // API call functions
 import { getProductObjectAPI } from "../../services/api";
 
+// context functions
+import { useCartContextValues } from "../../context/CartContext";
+
+
 function SingleProduct() {
   const productId = useParams<{ id: string }>();
   /* 
@@ -50,6 +54,12 @@ function SingleProduct() {
       setProductObject(productAPI);
     });
   }, []);
+
+  const { cartItems, handleIncreaseProductIntoCart } = useCartContextValues()
+
+  console.log(cartItems);
+  
+
   return (
     <Container>
       <div className="grid grid-cols-12 h-80 shadow mt-5 ">
@@ -60,7 +70,10 @@ function SingleProduct() {
         <div className="col-span-2 bg-sky-200 order-2 p-3">
           <img className="border" src={productObject?.imageUrl} alt="" />
           <div className="text-center ">
-            <Button className="rounded-md w-full py-2 mt-6" variant="primary">
+            {/* 
+              chon bayad 'id product' ro be 'context handleIncreaseProductIntoCart function' bedim bayad 'number' bashe pas az 'parsInt' estefade mikonim.
+            */}
+            <Button onClick={() => handleIncreaseProductIntoCart(parseInt(productId.id as string))} className="rounded-md w-full py-2 mt-6" variant="primary">
               اضافه به سبد خرید
             </Button>
           </div>
