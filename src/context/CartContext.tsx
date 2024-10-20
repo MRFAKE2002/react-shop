@@ -1,13 +1,11 @@
 // libraries
 import React, { createContext, useContext, useState } from "react";
 
+// types
+import { ICartItem } from "../types/server";
+
 interface ICartContextProvider {
   children: React.ReactNode;
-}
-
-interface ICartItem {
-  id: number;
-  quantity: number;
 }
 
 interface ICartContext {

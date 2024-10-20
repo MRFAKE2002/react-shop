@@ -7,3 +7,9 @@ export interface IProductsAPI {
   description: string;
   imageUrl: string;
 }
+
+
+export interface ICartItem {
+  id: number;
+  quantity: number;
+}

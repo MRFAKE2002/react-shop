@@ -78,7 +78,7 @@ We use 'useContext' for access to all 'context values' like cart items.
 
 23: Make 'cartTotalQuantity' variant for show total quantity of cart items in navbar.
 
-
+24: Now show product in list state cartItems in cart page and add its function for buttons of each cartItem component.
 
 
 
