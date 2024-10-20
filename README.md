@@ -72,8 +72,9 @@ We use 'useContext' for access to all 'context values' like cart items.
 
 20: Make 'handelDecreaseProductInCart' arrow function in context provider function to have in through the project and use it in 'SingleProduct' page.
 
-20: Make 'getProductQuantityFromCart' arrow function in context provider function to have in through the project and use it in 'SingleProduct' page.
+21: Make 'getProductQuantityFromCart' arrow function in context provider function to have in through the project and use it in 'SingleProduct' page.
 
+22: Make 'removeProductFromCart' arrow function in context provider function to have in through the project and use it in 'SingleProduct' page.
 
 
 

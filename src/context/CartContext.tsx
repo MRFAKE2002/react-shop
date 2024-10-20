@@ -15,6 +15,7 @@ interface ICartContext {
   handleIncreaseProductIntoCart: (id: number) => void;
   handleDecreaseProductIntoCart: (id: number) => void;
   getProductQuantityFromCart: (id: number) => number;
+  removeProductFromCart: (id: number) => void;
 }
 
 /*
@@ -152,9 +153,17 @@ export function CartContextProvider({ children }: ICartContextProvider) {
     return cartItems.find(item => item.id === id)?.quantity || 0
   }
 
-  
+  /*
+    dar inja ma mikhaim oun 'product' ro kamel az 'list state cartItems' pak konim. 
+    miaim dakhel 'state' filter mizanim migim hame 'object product' bashe be joz oun 'product' ke 'id' ro mifrestim
+  */
+  const removeProductFromCart = (id: number) => {
+    setCartItems(currentItems => currentItems.filter(item => item.id !== id))
+  }
+
+
   return (
-    <CartContext.Provider value={{ cartItems, handleIncreaseProductIntoCart, handleDecreaseProductIntoCart, getProductQuantityFromCart }}>
+    <CartContext.Provider value={{ cartItems, handleIncreaseProductIntoCart, handleDecreaseProductIntoCart, getProductQuantityFromCart, removeProductFromCart }}>
       {children}
     </CartContext.Provider>
   );

@@ -95,41 +95,56 @@ function SingleProduct() {
               </Button>
             </div>
           ) : (
-            <div className="flex justify-between mt-5">
+            <>
+              <div className="flex justify-between mt-5">
+                {/*
+                  chon bayad 'id product' ro be 'context handleIncreaseProductIntoCart function' bedim bayad 'number' bashe pas az 'parsInt' estefade mikonim.
+                */}
+                <Button
+                  className="rounded-md px-4 py-1"
+                  variant="primary"
+                  onClick={() =>
+                    handleIncreaseProductIntoCart(
+                      parseInt(productId.id as string)
+                    )
+                  }
+                >
+                  +
+                </Button>
+                <span className="flex">
+                  {getProductQuantityFromCart(parseInt(productId.id as string))}
+                </span>
+                {/*
+                  chon bayad 'id product' ro be 'context handleDecreaseProductIntoCart function' bedim bayad 'number' bashe pas az 'parsInt' estefade mikonim.
+                */}
+                <Button
+                  onClick={() =>
+                    handleDecreaseProductIntoCart(
+                      parseInt(productId.id as string)
+                    )
+                  }
+                  className="rounded-md px-4 py-1"
+                  variant="danger"
+                >
+                  -
+                </Button>
+              </div>
               {/*
-                chon bayad 'id product' ro be 'context handleIncreaseProductIntoCart function' bedim bayad 'number' bashe pas az 'parsInt' estefade mikonim.
-              */}
-              <Button
-                className="rounded-md px-4 py-1"
-                variant="primary"
-                onClick={() =>
-                  handleIncreaseProductIntoCart(
-                    parseInt(productId.id as string)
-                  )
-                }
-              >
-                +
-              </Button>
-              <span className="flex">
-                {getProductQuantityFromCart(parseInt(productId.id as string))}
-              </span>
-              {/*
-                chon bayad 'id product' ro be 'context handleDecreaseProductIntoCart function' bedim bayad 'number' bashe pas az 'parsInt' estefade mikonim.
-              */}
+                  chon bayad 'id product' ro be 'context handleDecreaseProductIntoCart function' bedim bayad 'number' bashe pas az 'parsInt' estefade mikonim.
+                */}
               <Button
                 onClick={() =>
                   handleDecreaseProductIntoCart(
                     parseInt(productId.id as string)
                   )
                 }
-                className="rounded-md px-4 py-1"
+                className="rounded-md w-full py-1"
                 variant="danger"
               >
-                -
+                حذف از سبد خرید
               </Button>
-            </div>
+            </>
           )}
-
         </div>
         {/* 
           ghesmat body product
