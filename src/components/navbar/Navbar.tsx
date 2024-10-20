@@ -1,6 +1,5 @@
 // libraries
 import { Link } from "react-router-dom";
-import { useContext } from "react";
 
 // components
 import Container from "../container/Container";
@@ -14,15 +13,15 @@ function Navbar() {
 
   return (
     /* 
-      dar inja baraye inke betunim link ha va button ke sakhtim kenare ham gharar bedim bayad az 'flex' estefade konim. 
-      baraye inke button va link ha fasele dashte bashan az ham bayad az 'justify-between' estefade konim. 
-      baraye inke dar samt chap va link ha dar samt rast bashan bayad az 'flex-row-reverse' estefade konim. 
-      baraye inke ham button va ham link ha vasat bian az bala va payin bayad az 'items-center' estefade konim.
+      dar inja baraye in ke betunim link ha va button ke sakhtim kenare ham gharar bedim bayad az 'flex' estefade konim. 
+      baraye in ke button va link ha fasele dashte bashan az ham bayad az 'justify-between' estefade konim. 
+      baraye in ke dar samt chap va link ha dar samt rast bashan bayad az 'flex-row-reverse' estefade konim. 
+      baraye in ke ham button va ham link ha vasat bian az bala va payin bayad az 'items-center' estefade konim.
     */
     <div className="h-20 border-b-2 flex items-center">
       {/* 
         baraye gozashtan fasele az chap va rast az component container estefade mikonim va be onvan children pas midim.
-        chon ma alan ba gozoshtan component oun class tailwind ke dar div bala bud emal nemishe pas bayad biaim yek div dige 
+        chon ma alan ba gozashtan component oun class tailwind ke dar div bala bud emal nemishe pas bayad biaim yek div dige 
         bezarim ke betunim behesh style bedim.
         ama chon oumadim dakhel component 'Container' az 'mx-auto' estefade kardim pas class 'items-center' emal nemishe pas bayad
         biaim be tag pedaresh in class ro bedim yani tag ghabl az component 'container'.
@@ -30,8 +29,8 @@ function Navbar() {
       <Container>
         <div className="flex justify-between flex-row-reverse ">
           {/*
-            dar inja baraye inke link hayi ke sakhtim zire ham nabashe va kenar ham bashe pas bayad az 'flex' estefade konim.
-            va baraye inke jaye in link ha bar aks neshun dade beshe bayad az 'flex-row-reverse' estefade konim.
+            dar inja baraye in ke link hayi ke sakhtim zire ham nabashe va kenar ham bashe pas bayad az 'flex' estefade konim.
+            va baraye in ke jaye in link ha bar aks neshun dade beshe bayad az 'flex-row-reverse' estefade konim.
           */}
           <ul className="flex flex-row-reverse">
             <li className="mx-4">
@@ -47,10 +46,12 @@ function Navbar() {
               <Link to="/store">فروشگاه</Link>
             </li>
           </ul>
-          <div>
+          <div className="relative">
             <Link to="/cart">
-              <button>سبد خرید</button>
-              <span>{cartTotalQuantity}</span>
+              <button>
+              <img width="25" height="25" src="https://img.icons8.com/ios/50/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+              </button>
+              <span className="inline-block rounded-full bg-red-500 text-white size-7 text-center absolute top-0 ml-2">{cartTotalQuantity}</span>
             </Link>
           </div>
         </div>
