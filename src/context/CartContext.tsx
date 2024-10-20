@@ -16,6 +16,7 @@ interface ICartContext {
   handleDecreaseProductIntoCart: (id: number) => void;
   getProductQuantityFromCart: (id: number) => number;
   removeProductFromCart: (id: number) => void;
+  cartTotalQuantity: number;
 }
 
 /*
@@ -161,9 +162,21 @@ export function CartContextProvider({ children }: ICartContextProvider) {
     setCartItems(currentItems => currentItems.filter(item => item.id !== id))
   }
 
+  /*
+    inja ma mikhaim biaim 'tedad kol product' dakhel 'list state cartItems' ro be dast biarim va dar navbar bezarim.
+
+    alan az 'reduce' estefade mikonim; in method karesh jamavarie maghadir mokhtalef dar yek araye va tabdil oun be yek meghdar vahed ast. 2 attribute migire:
+    
+    1: ye arrow function ke baraye har 'object product' dat 'list' ejra mishe; hala in function 2 ta attribute migire;
+    1-1: oun meghdar vahed ke gharar majmue 'quantity product' ro dakhelesh mizarim.
+    1-2: har 'object product' ke dakhel 'list' hast ro dar in meghdar mizarim.
+
+    2: ye 'meghdar avalie' migire ke baraye oun meghdar vahed 'attribute aval arrow function' gharar midim.
+  */
+  const cartTotalQuantity = cartItems.reduce((totalQuantity, productObject) => totalQuantity + productObject.quantity, 0)
 
   return (
-    <CartContext.Provider value={{ cartItems, handleIncreaseProductIntoCart, handleDecreaseProductIntoCart, getProductQuantityFromCart, removeProductFromCart }}>
+    <CartContext.Provider value={{ cartItems, handleIncreaseProductIntoCart, handleDecreaseProductIntoCart, getProductQuantityFromCart, removeProductFromCart, cartTotalQuantity }}>
       {children}
     </CartContext.Provider>
   );

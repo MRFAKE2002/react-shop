@@ -59,13 +59,14 @@ function SingleProduct() {
     handleIncreaseProductIntoCart,
     handleDecreaseProductIntoCart,
     getProductQuantityFromCart,
+    removeProductFromCart,
   } = useCartContextValues();
 
   console.log(cartItems);
 
   return (
     <Container>
-      <div className="grid grid-cols-12 h-60 shadow mt-5 ">
+      <div className="grid grid-cols-12 h-auto shadow mt-5 ">
         {/*
           ghesmat aks va dokme sabad kharid product.
           man inja baraye in ke jaye 'div image' va 'div body' ro avaz konam oumadam az class 'order' estefade kardam ke tartib ro avaz konam.
@@ -134,11 +135,11 @@ function SingleProduct() {
                 */}
               <Button
                 onClick={() =>
-                  handleDecreaseProductIntoCart(
+                  removeProductFromCart(
                     parseInt(productId.id as string)
                   )
                 }
-                className="rounded-md w-full py-1"
+                className="rounded-md w-full py-1 mt-5"
                 variant="danger"
               >
                 حذف از سبد خرید

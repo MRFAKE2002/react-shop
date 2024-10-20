@@ -76,7 +76,7 @@ We use 'useContext' for access to all 'context values' like cart items.
 
 22: Make 'removeProductFromCart' arrow function in context provider function to have in through the project and use it in 'SingleProduct' page.
 
-
+23: Make 'cartTotalQuantity' variant for show total quantity of cart items in navbar.
 
 
 

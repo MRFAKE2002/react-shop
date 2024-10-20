@@ -1,10 +1,17 @@
 // libraries
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 
 // components
 import Container from "../container/Container";
 
+// context
+import { useCartContextValues } from "../../context/CartContext";
+
+
 function Navbar() {
+  const { cartTotalQuantity } = useCartContextValues()
+
   return (
     /* 
       dar inja baraye inke betunim link ha va button ke sakhtim kenare ham gharar bedim bayad az 'flex' estefade konim. 
@@ -43,6 +50,7 @@ function Navbar() {
           <div>
             <Link to="/cart">
               <button>سبد خرید</button>
+              <span>{cartTotalQuantity}</span>
             </Link>
           </div>
         </div>
