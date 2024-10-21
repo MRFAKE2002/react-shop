@@ -80,7 +80,7 @@ We use 'useContext' for access to all 'context values' like cart items.
 
 24: Now show product in list state cartItems in cart page and add its function for buttons of each cartItem component.
 
-
+25: Now we make useLocalStorage custom hook to add cartItems into localStorage
 
 
 # React + TypeScript + Vite

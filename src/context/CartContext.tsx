@@ -1,8 +1,11 @@
 // libraries
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext } from "react";
 
 // types
 import { ICartItem } from "../types/server";
+
+// custom hooks
+import { useLocalStorage } from "../hooks/localStorageHook";
 
 interface ICartContextProvider {
   children: React.ReactNode;
@@ -50,21 +53,24 @@ export function CartContextProvider({ children }: ICartContextProvider) {
     az ounjayi ke back-end kar 'data product' ro khodesh dare pas faghat ma bayad 'id' va 'quantity' product ro behesh bedim 
     ke begim 'che product vaa chand ta' dar cart hast.
   */
-  const [cartItems, setCartItems] = useState<ICartItem[]>([]);
+  const [cartItems, setCartItems] = useLocalStorage<ICartItem[]>("cartItems", []);
 
   /*
     khob residim ghul akhar :
     alan mikhaim function besazim baraye 'cart'; in function 3 ta senario dare baraye har product:
 
-    1: baraye 'avalin bare' ke mikhaim 'product' dar 'cart' ezafe konim pas bayad 'id' oun 'product' ro begirim va agar dakhel 'cart' nabud ya amalan 'null ya undefine'
-    bargardund biaim begim 'id product va quantity oun product' ro dar 'stat cartItems' ezafe kon.
+    1: baraye 'avalin bare' ke mikhaim 'product' dar 'cart' ezafe konim pas bayad 'id' oun 'product' ro begirim va agar dakhel 
+    'cart' nabud ya amalan 'null ya undefine' bargardund biaim begim 'id product va quantity oun product' ro dar 
+    'stat cartItems' ezafe kon.
 
-    2: agar 'product' dakhel 'cart' bud bayad biaim dakhel 'list state cartItems' begardim biaim 'id product' bedim age bud be 'quantity' ezafe konim.
+    2: agar 'product' dakhel 'cart' bud bayad biaim dakhel 'list state cartItems' begardim biaim 'id product' bedim age 
+    bud be 'quantity' ezafe konim.
 
-    3: ma dakhel 'list state cartItems' momkene chand ta 'product' dashte bashim bayad begim ke oun 'product' ke bahash kari nadarim hamuntori bargardune.
+    3: ma dakhel 'list state cartItems' momkene chand ta 'product' dashte bashim bayad begim ke oun 'product' ke bahash kari 
+    nadarim hamuntori bargardune.
 
-    ma alan miaim 'id' ke dakhel 'SingleProduct page' az 'useParams' gereftim ro be 'function' midim. hala inja 'function setCartItems' seda mizanim chon hame senario ha
-    va data dakhel in 'list' gharar dare. 
+    ma alan miaim 'id' ke dakhel 'SingleProduct page' az 'useParams' gereftim ro be 'function' midim. hala inja 
+    'function setCartItems' seda mizanim chon hame senario ha va data dakhel in 'list' gharar dare. 
 
   */
 
