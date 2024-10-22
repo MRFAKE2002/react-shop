@@ -13,3 +13,7 @@ export interface ICartItem {
   id: number;
   quantity: number;
 }
+
+export interface IContextProvider {
+  children: React.ReactNode;
+}

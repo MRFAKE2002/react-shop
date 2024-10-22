@@ -1,15 +1,12 @@
 // libraries
-import React, { createContext, useContext } from "react";
+import { createContext, useContext } from "react";
 
 // types
-import { ICartItem } from "../types/server";
+import { ICartItem, IContextProvider } from "../types/server";
 
 // custom hooks
 import { useLocalStorage } from "../hooks/localStorageHook";
 
-interface ICartContextProvider {
-  children: React.ReactNode;
-}
 
 interface ICartContext {
   cartItems: ICartItem[];
@@ -45,7 +42,7 @@ export const useCartContextValues = () => {
   return useContext(CartContext);
 };
 
-export function CartContextProvider({ children }: ICartContextProvider) {
+export function CartContextProvider({ children }: IContextProvider) {
   /*
     alan ma miaim 'useState' estefade mikonim ye 'list' dakhelesh gharar midim baraye 'products' va in 'state' ro be onvan 'context' 
     be kol project mifrestim va in kar ro ba gharar dadan 'state' be onvan 'value' dakhel 'context Provider' anjam midim.

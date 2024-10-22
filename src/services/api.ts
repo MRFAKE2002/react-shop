@@ -75,3 +75,22 @@ export async function getProductObjectAPI(id: string) {
 
   return data;
 }
+
+/*
+  inja miaim ye darkhast misazim baraye yek 'url' ke 'data login' befrestim 'POST' konim va 'token' begirim ama chon API ro 
+  nadarim ye chiz alaki mizanim
+*/
+export async function getLoginAPI(username: string, password: string) {
+  const { data } = await client({
+    method: "POST",
+    url: "/login",
+    data: {
+      username,
+      password
+    }
+  });
+  // console.log(data);
+
+  return data;
+}
+

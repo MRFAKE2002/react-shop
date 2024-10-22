@@ -82,6 +82,13 @@ We use 'useContext' for access to all 'context values' like cart items.
 
 25: Now we make useLocalStorage custom hook to add cartItems into localStorage
 
+26: Make 'PrivateRoute' component to make Route for check login user in route.
+
+27: Make 'loginContext' to make handelLogin and handelLogout function in project.
+
+28: Make login and logout pages
+
+29: Finish course
 
 # React + TypeScript + Vite
 

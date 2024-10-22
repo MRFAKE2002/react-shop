@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 // components
 import Container from "../container/Container";
 
-// context
+// context functions
 import { useCartContextValues } from "../../context/CartContext";
-
+import { useLoginContext } from "../../context/loginContext/LoginContext";
 
 function Navbar() {
-  const { cartTotalQuantity } = useCartContextValues()
+  const { cartTotalQuantity } = useCartContextValues();
 
+  const { isLogin } = useLoginContext();
   return (
     /* 
       dar inja baraye in ke betunim link ha va button ke sakhtim kenare ham gharar bedim bayad az 'flex' estefade konim. 
@@ -42,16 +43,32 @@ function Navbar() {
               */}
               <Link to="/">خانه</Link>
             </li>
-            <li>
+            <li className="ml-4">
               <Link to="/store">فروشگاه</Link>
             </li>
+            {isLogin ? (
+              <li>
+                <Link to="/logout">خروج</Link>
+              </li>
+            ) : (
+              <li>
+                <Link to="/login">ورود</Link>
+              </li>
+            )}
           </ul>
           <div className="relative">
             <Link to="/cart">
               <button>
-              <img width="25" height="25" src="https://img.icons8.com/ios/50/shopping-cart--v1.png" alt="shopping-cart--v1"/>
+                <img
+                  width="25"
+                  height="25"
+                  src="https://img.icons8.com/ios/50/shopping-cart--v1.png"
+                  alt="shopping-cart--v1"
+                />
               </button>
-              <span className="inline-block rounded-full bg-red-500 text-white size-7 text-center absolute top-0 ml-2">{cartTotalQuantity}</span>
+              <span className="inline-block rounded-full bg-red-500 text-white size-7 text-center absolute top-0 ml-2">
+                {cartTotalQuantity}
+              </span>
             </Link>
           </div>
         </div>
